@@ -8,5 +8,5 @@
 # Optional parameters:
 # @raycast.icon 🤖
 
-alacritty msg create-window
+/Applications/Alacritty.app/Contents/MacOS/alacritty msg create-window
 

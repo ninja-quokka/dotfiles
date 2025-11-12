@@ -9,6 +9,7 @@ vim.api.nvim_create_autocmd("User", {
   pattern = "DebugModeChanged",
   callback = function(args)
     dmode_enabled = args.data.enabled
+    require('lualine').refresh()
   end,
 })
 

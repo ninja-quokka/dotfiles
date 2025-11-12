@@ -1,5 +1,5 @@
 vim.pack.add({
-  "https://github.com/echasnovski/mini.hipatterns",
+  "https://github.com/nvim-mini/mini.hipatterns",
 })
 
 local hipatterns = require('mini.hipatterns')

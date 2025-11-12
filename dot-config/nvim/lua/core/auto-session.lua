@@ -7,10 +7,7 @@ require("auto-session").setup {
   auto_save = true,
   auto_restore = true,
   session_lens = { load_on_setup = false },
-  auto_create = function()
-    local cmd = 'git rev-parse --is-inside-work-tree'
-    return vim.fn.system(cmd) == 'true\n'
-  end,
+  auto_create = true,
   suppressed_dirs = { "/", "~", "/tmp/" }, -- Suppress session restore/create in certain directories
   auto_restore_last_session = false,
   lazy_support = false,

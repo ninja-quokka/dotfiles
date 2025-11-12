@@ -47,10 +47,3 @@ odp.setup({
 })
 
 vim.cmd("colorscheme onedark_vivid")
-
--- Set lueline
--- local custom_onedark = require("lualine.themes.onedark_vivid")
--- custom_onedark.normal.a.bg = ikea_yellow
--- require("lualine").setup({
---   options = { theme = custom_onedark },
--- })
