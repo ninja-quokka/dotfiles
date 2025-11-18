@@ -46,7 +46,7 @@ interesting-word() {
 vv() {
   # set -e  # Exit immediately if a command exits with a non-zero status
 
-  local repo="$HOME/code/github.com/neovim/neovim"
+  local repo="$HOME/code/github.com/neovim/neovim.git/master"
   local vim_runtime="$repo/runtime"
   local nvim_app_name="nvim"
   local nvim_nightly_bin="$repo/build/bin/nvim"
@@ -54,7 +54,7 @@ vv() {
   local debug=${DEBUG:-false}
   local build_container="quay.io/fedora/fedora-minimal:41"
 
-  if [[ ! -d "$repo/.git" ]]; then
+  if [[ ! -f "$repo/README.md" ]]; then
     echo "Error: Neovim git repo not found at $repo" >&2
     return 1
   fi
@@ -68,16 +68,17 @@ vv() {
   fi
 
   if [[ "$skip_update" -eq 0 ]]; then
-    if nc -zw1 github.com 443 >& /dev/null; then
+    if socat -T1 - tcp:github.com:443 >& /dev/null; then
       pushd "$repo"
       git fetch origin
-      if git diff --quiet HEAD..origin/$(git rev-parse --abbrev-ref HEAD); then
+      #if git diff --quiet HEAD..origin/$(git rev-parse --abbrev-ref HEAD); then
+      if true; then
         if [[ -x "$nvim_nightly_bin" ]]; then
           mv "$nvim_nightly_bin" "$nvim_nightly_bin"-old
         fi
         git rev-parse HEAD > "$sha_file"
         git pull --ff-only origin "$(git rev-parse --abbrev-ref HEAD)"
-        if uname != "Darwin"; then
+        if [ "$uname" != "Darwin" ]; then
           podman run --rm -it -v "$PWD:/workdir" \
             -w /workdir \
             "$build_container" \

@@ -17,7 +17,7 @@ history=100000
 size = 18
 
 [font.normal]
-family = "Maple Mono NF"
+family = "Maple Mono"
 style = "Regular"
 
 [[keyboard.bindings]]

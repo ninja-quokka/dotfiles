@@ -2,7 +2,7 @@
 
 # vars
 set -x
-code_dir="$HOME/Code"
+code_dir="$HOME/code"
 
 validate_github_pr_url() {
   local url="$1"
