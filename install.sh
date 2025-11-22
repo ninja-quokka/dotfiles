@@ -5,6 +5,6 @@ mkdir -p "$HOME/.local/share"
 mkdir -p "$HOME/.config"
 mkdir -p "$HOME/.config/gh" #GitHub CLI
 
-# sudo pacman -Sy stow zsh python-pyusb podman
+# sudo pacman -Sy stow zsh python-pyusb podman hyprland
 
 stow --dotfiles -t "$HOME" .

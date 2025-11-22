@@ -1,6 +1,6 @@
 # Use Neovim for man pages
 # :h :Man
-export MANPAGER='nvim +Man!'
+export MANPAGER='vv +Man!'
 export MANWIDTH=999
 
 # vi mode
