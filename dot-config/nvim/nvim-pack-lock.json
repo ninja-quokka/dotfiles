@@ -33,25 +33,9 @@
       "rev": "b147d91727cb35be4f722f17e7d4ed5b4a5801d8",
       "src": "https://github.com/Chaitanyabsprip/fastaction.nvim"
     },
-    "fzf-lua": {
-      "rev": "9a0704e8af8f8442110ff22a83b5608366b235df",
-      "src": "https://github.com/ibhagwan/fzf-lua"
-    },
     "gitsigns.nvim": {
       "rev": "cdafc320f03f2572c40ab93a4eecb733d4016d07",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
-    },
-    "hlchunk.nvim": {
-      "rev": "937135185f99a30cb1413fff76a5c971f250b1a7",
-      "src": "https://github.com/shellRaining/hlchunk.nvim"
-    },
-    "jinja.vim": {
-      "rev": "05373374a288b20845937cbc3a7abda23a2e65d2",
-      "src": "https://github.com/HiPhish/jinja.vim"
-    },
-    "jira.nvim": {
-      "rev": "f5c3c923bb01e241032a3fcd6e06e9c75aee0fb7",
-      "src": "https://github.com/Funk66/jira.nvim"
     },
     "journal.nvim": {
       "rev": "006d9900cad5c378ed4b4cb89eb8696fb2383042",
@@ -76,10 +60,6 @@
     "neogit": {
       "rev": "451e57fa3633c935c4c32c669ad5aa447d3db257",
       "src": "https://github.com/NeogitOrg/neogit"
-    },
-    "nightfox.nvim": {
-      "rev": "ba47d4b4c5ec308718641ba7402c143836f35aa9",
-      "src": "https://github.com/edeneast/nightfox.nvim"
     },
     "nvim-dap": {
       "rev": "5860c7c501eb428d3137ee22c522828d20cca0b3",
@@ -132,10 +112,6 @@
     "treesj": {
       "rev": "4770492244ccecdc9b01e0e81fa8f2f6b4a23841",
       "src": "https://github.com/Wansmer/treesj"
-    },
-    "vague.nvim": {
-      "rev": "dba28050887c2810b5ebf9e0143b4e919bd55757",
-      "src": "https://github.com/vague2k/vague.nvim"
     },
     "which-key.nvim": {
       "rev": "3aab2147e74890957785941f0c1ad87d0a44c15a",
