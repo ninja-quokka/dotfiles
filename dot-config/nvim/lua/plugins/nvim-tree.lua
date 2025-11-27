@@ -48,3 +48,8 @@ require("nvim-tree").setup {
     },
   },
 }
+
+vim.keymap.set("n", "<leader>e", function()
+  require("plugins.nvim-tree")
+  vim.cmd("NvimTreeToggle")
+end, { desc = "Toggle file tree" })

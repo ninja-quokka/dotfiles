@@ -4,6 +4,7 @@ vim.g.maplocalleader = " "
 
 -- Better UX
 vim.opt.autowriteall = true
+vim.o.cmdheight = 0
 
 -- Set spell opts
 vim.opt.spell = false
@@ -105,6 +106,10 @@ vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,
 
 -- Enables loading .nvimrc files for per project configuration
 vim.opt.exrc = true
+
+-- Enable experimental Lua module loader that reduces
+-- startup time by caching byte-compiled Lua files.
+vim.loader.enable()
 
 -- vim.diagnostic.config({
 --   severity_sort = true,

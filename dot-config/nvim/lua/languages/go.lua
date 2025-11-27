@@ -81,7 +81,7 @@ vim.dap.configurations.go = final_config
 -- 	},
 -- }
 
-vim.ftplugin.go = function()
+G.ftplugin.go = function()
   vim.o.listchars = "trail:-,nbsp:+,tab:▏ ,multispace:·"
   vim.opt_local.tabstop = 4
   vim.opt_local.shiftwidth = 4

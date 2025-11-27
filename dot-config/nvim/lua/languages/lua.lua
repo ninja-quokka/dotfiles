@@ -6,6 +6,7 @@ if vim.g.lazydev_enabled then
   require("lazydev").setup()
 end
 
-vim.ftplugin.lua = function()
-	vim.keymap.set("v", "r", ":'<,'>lua<CR>", { buffer = 0, silent = true })
+-- This function will only run on buffers of this filetype
+G.ftplugin.lua = function()
+	vim.keymap.set("v", "r", ":'<,'>lua<CR>", { buffer = true, silent = true })
 end

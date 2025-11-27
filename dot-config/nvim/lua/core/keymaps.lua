@@ -93,7 +93,3 @@ map("n", "K", function() vim.lsp.buf.hover({ border = "rounded" }) end)
 map("n", "<leader>lf", vim.lsp.buf.format, { desc = "Lsp format buffer" })
 map("n", "<leader>;", "<CMD>:noh<CR>", { desc = "clear search hl", silent = true })
 
-map("n", "<leader>e", function()
-  require("plugins.nvim-tree")
-  vim.cmd("NvimTreeToggle")
-end, { desc = "Toggle file tree" })

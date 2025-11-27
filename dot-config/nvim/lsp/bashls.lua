@@ -12,13 +12,14 @@ return {
       -- directly in the home directory (e.g. ~/foo.sh).
       --
       -- Default upstream pattern is "**/*@(.sh|.inc|.bash|.command)".
-      globPattern = vim.env.GLOB_PATTERN or '*@(.sh|.inc|.bash|.command)',
+      -- Updated to include jinja template files: *.sh.j2, *.sh.jinja, *.sh.jinja2, etc.
+      globPattern = vim.env.GLOB_PATTERN or '*@(.sh|.sh.j2|.sh.jinja|.sh.jinja2|.bash|.bash.j2|.bash.jinja|.bash.jinja2|.inc|.command)',
       shfmt = {
         path = "", --NOTE: Disable and let Conform format
       },
 
     },
   },
-  filetypes = { 'bash', 'sh' },
+  filetypes = { 'bash', 'sh', 'bash.jinja', 'sh.jinja'},
   root_markers = { '.git' },
 }

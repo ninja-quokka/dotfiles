@@ -4,8 +4,13 @@ vim.pack.add {
   "https://github.com/miroshQa/debugmaster.nvim"
 }
 
-
-
 local dm = require("debugmaster")
 vim.keymap.set({ "n", "v" }, "<leader>d", dm.mode.toggle, { nowait = true, desc = "Debug mode toggle" })
 dm.plugins.osv_integration.enabled = true
+
+vim.dap = require("dap")
+vim.dap.utils = require("dap.utils")
+vim.dap.utils.query_args = function()
+  return vim.split(vim.fn.input('Program arguments: '), " +")
+end
+

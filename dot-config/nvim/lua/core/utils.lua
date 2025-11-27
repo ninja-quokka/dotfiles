@@ -6,6 +6,11 @@ function G.P(...)
   return ...
 end
 
+function G.get_mason_bin(name)
+  local mason_bin = vim.fs.joinpath(vim.fn.stdpath('data'), "mason/bin")
+  return vim.fs.joinpath(mason_bin, name)
+end
+
 function G.root_dir(markers)
   return function(bufnr, cb)
     local fname = vim.api.nvim_buf_get_name(bufnr)
@@ -38,6 +43,25 @@ function M.applySpec(specs)
     end
     return spec
   end
+end
+
+--- Keymap abstraction for plugins
+-- Provides a consistent API for setting keymaps across plugins
+-- @param mode string|table: vim mode(s) ('n', 'v', 'i', etc. or table of modes)
+-- @param lhs string: left-hand side (key sequence)
+-- @param rhs string|function: right-hand side (command or function)
+-- @param opts table: optional keymap options (buffer, desc, silent, etc.)
+-- @param bufnr number|nil: optional buffer number for buffer-local mappings
+-- @usage
+--   local map = require("core.utils").map
+--   map("n", "<leader>aa", function() ... end, { desc = "Description" })
+--   map("n", "<leader>bb", ":Command<CR>", { desc = "Command" }, bufnr) -- buffer-local
+function M.map(mode, lhs, rhs, opts, bufnr)
+  opts = opts or {}
+  if bufnr then
+    opts.buffer = bufnr
+  end
+  vim.keymap.set(mode, lhs, rhs, opts)
 end
 
 G.icons = setmetatable({

@@ -7,37 +7,7 @@ local M = {}
 local methods = vim.lsp.protocol.Methods
 local autocmd = vim.api.nvim_create_autocmd
 local augroup = vim.api.nvim_create_augroup
-local auclear = vim.api.nvim_clear_autocmds
 local open_floating_preview = vim.lsp.util.open_floating_preview
-
--- Create autocmd to handle highlight on CursorHold
-function M.lsp_highlight_document(client, bufnr)
-  if not client:supports_method(methods.textDocument_documentHighlight, bufnr) then
-    return
-  end
-
-  local group = augroup("LspDocumentHighlight", { clear = false })
-
-  autocmd({ "CursorHold", "CursorHoldI" }, {
-    group = group,
-    buffer = bufnr,
-    callback = vim.lsp.buf.document_highlight,
-  })
-
-  autocmd({ "CursorMoved", "CursorMovedI" }, {
-    group = group,
-    buffer = bufnr,
-    callback = vim.lsp.buf.clear_references,
-  })
-
-  autocmd({ "LspDetach" }, {
-    group = augroup("UserLspDetach", { clear = true }),
-    callback = function(event)
-      vim.lsp.buf.clear_references()
-      auclear({ group = group, buffer = event.buf })
-    end,
-  })
-end
 
 function M.lsp_code_lens_refresh(client, bufnr)
   if not client:supports_method(methods.textDocument_codeLens, bufnr) then
@@ -51,7 +21,6 @@ function M.lsp_code_lens_refresh(client, bufnr)
 end
 
 function M.set_lsp_buffer_keybindings(client, bufnr)
-  local fzf = require("fzf-lua")
   local map = function(keys, func, desc, mode, nowait)
     mode = mode or "n"
     nowait = nowait or false
@@ -71,15 +40,14 @@ function M.set_lsp_buffer_keybindings(client, bufnr)
     map("gd", vim.lsp.buf.definition)
   end
 
-  map("<leader>ss", fzf.lsp_document_symbols, "Find lsp symbols (jump)")
-  map("<leader>sS", fzf.lsp_live_workspace_symbols, "Find lsp workspace symbols (Jump)")
-  map("<leade>sd", fzf.lsp_document_diagnostics, "Find diagnostics")
-  map("<leader>sD", fzf.lsp_workspace_diagnostics, "Find workspace diagnostics")
-  map("gd", fzf.lsp_definitions)
-  map("gr", fzf.lsp_references)
-  map("go", fzf.lsp_code_actions)
-  map("gi", fzf.lsp_implementations, "lsp implementations")
-  map("gy", fzf.lsp_typedefs, "lsp type definitions")
+  map("<leader>ss", Snacks.picker.lsp_symbols, "Find lsp symbols (jump)")
+  map("<leader>sS", Snacks.picker.lsp_workspace_symbols, "Find lsp workspace symbols (Jump)")
+  map("<leade>sd", Snacks.picker.diagnostics_buffer, "Find diagnostics")
+  map("<leader>sD", Snacks.picker.diagnostics, "Find workspace diagnostics")
+  map("gd", Snacks.picker.lsp_definitions, "Goto Definition")
+  map("gr", Snacks.picker.lsp_references, "References")
+  map("gi", Snacks.picker.lsp_implementations, "Goto Implementation")
+  map("gy", Snacks.picker.lsp_type_definitions, "Goto T[y]pe Definition")
 end
 
 function M.lazyLoadFastActions(client, bufnr)
@@ -146,6 +114,8 @@ function M.get_client_capabilities()
       },
     },
   })
+
+  return capabilities
 end
 
 function M.setup_lsp_kind()
@@ -178,7 +148,26 @@ function M.setup_lsp_kind()
   }
 end
 
+--- Sets up and configures Language Server Protocol (LSP) clients.
+-- This function initializes the LSP system by:
+-- 1. Configuring floating preview windows and completion item kinds
+-- 2. Registering each server with enhanced capabilities
+-- 3. Setting up buffer-local features (keybindings, highlights, code lenses) when LSP attaches
+-- 4. Enabling automatic server startup for matching filetypes
+--
+-- Server configurations are automatically loaded from `lsp/<server_name>.lua` files
+-- and merged with the capabilities provided here.
+--
+-- @param servers table List of LSP server names to configure (e.g., {"gopls", "lua_ls"})
+-- @usage require("core.lsp").setup({"gopls", "lua_ls", "bashls"})
 function M.setup(servers)
+
+  -- Command to fully reload all LSPs
+  cmd("LspReload", function()
+    vim.lsp.stop_client(vim.lsp.get_clients())
+    vim.cmd([[edit!]])
+  end, {})
+
   M.override_floating_preview()
   M.setup_lsp_kind()
 
@@ -188,8 +177,11 @@ function M.setup(servers)
     })
   end
 
+  vim.lsp.enable(servers)
+
+  -- This stuff happens when a lang file is opened.
   autocmd({ "LspAttach" }, {
-    group = augroup("UserLspAttach", {}),
+    group = augroup("UserLspAttach", { clear = true }),
     callback = function(event)
       local client = vim.lsp.get_client_by_id(event.data.client_id)
 
@@ -198,7 +190,6 @@ function M.setup(servers)
       end
 
       utils.applySpec({
-        M.lsp_highlight_document,
         M.lsp_code_lens_refresh,
         M.set_lsp_buffer_keybindings,
         M.lazyLoadFastActions,
@@ -210,14 +201,6 @@ function M.setup(servers)
       end
     end,
   })
-
-  vim.lsp.enable(servers)
 end
-
--- Command to fully reload all LSPs
-cmd("LspReload", function()
-  vim.lsp.stop_client(vim.lsp.get_clients())
-  vim.cmd([[edit!]])
-end, {})
 
 return M
