@@ -34,7 +34,7 @@
       "src": "https://github.com/Chaitanyabsprip/fastaction.nvim"
     },
     "gitsigns.nvim": {
-      "rev": "cdafc320f03f2572c40ab93a4eecb733d4016d07",
+      "rev": "5813e4878748805f1518cee7abb50fd7205a3a48",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "journal.nvim": {
@@ -58,7 +58,7 @@
       "src": "https://github.com/nvim-mini/mini.hipatterns"
     },
     "neogit": {
-      "rev": "451e57fa3633c935c4c32c669ad5aa447d3db257",
+      "rev": "40347fbc45bd87339eb702bb70dab23c40c15482",
       "src": "https://github.com/NeogitOrg/neogit"
     },
     "nvim-dap": {
@@ -66,7 +66,7 @@
       "src": "https://github.com/mfussenegger/nvim-dap"
     },
     "nvim-tree.lua": {
-      "rev": "1eda2569394f866360e61f590f1796877388cb8a",
+      "rev": "776a5cdfac948b490e06f1d1d22c4cb986e40699",
       "src": "https://github.com/nvim-tree/nvim-tree.lua"
     },
     "nvim-treesitter": {
@@ -94,7 +94,7 @@
       "src": "https://github.com/nvim-lua/plenary.nvim"
     },
     "schemastore.nvim": {
-      "rev": "eed1834170f343c14a6768f085b26b3571a55302",
+      "rev": "5f2299987a1937612c910f00db39156bab6a6b35",
       "src": "https://github.com/b0o/schemastore.nvim"
     },
     "sidekick.nvim": {
@@ -106,7 +106,7 @@
       "src": "https://github.com/folke/snacks.nvim"
     },
     "tiny-inline-diagnostic.nvim": {
-      "rev": "44b61d4cb9dd6c423793e6cb21dcc313d223e690",
+      "rev": "38b06435305c30966b7ceb0a43e460dc43acaada",
       "src": "https://github.com/rachartier/tiny-inline-diagnostic.nvim"
     },
     "treesj": {
