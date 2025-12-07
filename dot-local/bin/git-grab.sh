@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 set -euox pipefail
 
+# Commands for gitlab:
+# glab repo fork <repo>
+# glab repo clone <repo> -- --bare
+
 # --- Configuration ---
 readonly CODE_DIR="${HOME}/code"
 # GH_USERNAME will be set by validate_repo_url
@@ -87,7 +91,7 @@ git_grab() {
             echo "${GH_USERNAME}/${repo_name} not found. Forking and cloning from ${url}..."
 
             # Fork and clone (gh repo fork creates a standard clone)
-            gh repo fork "$url" --clone --remote || { echo "Fork/Clone failed" >&2; exit 1; }
+            gh repo fork "$url" --clone --remote -- --bare || { echo "Fork/Clone failed" >&2; exit 1; }
         else
             echo "Successfully cloned existing bare fork."
         fi

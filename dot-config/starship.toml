@@ -268,7 +268,7 @@ threshold = 100
 
 # New line character
 [character]
-success_symbol = '[󰅂](bold fg:#25be6a)'
+success_symbol = '[❯](bold fg:#25be6a)'
 error_symbol = '[](bold fg:#ee5396)'
 vimcmd_symbol = '[󰅁](bold fg:green)'
 vimcmd_replace_one_symbol = '[󰅁](bold fg:purple)'

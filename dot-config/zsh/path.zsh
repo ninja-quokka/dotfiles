@@ -11,6 +11,7 @@
         if [ ! "$HOMEBREW_LOADED" = "true" ]; then
           eval $(/opt/homebrew/bin/brew shellenv)
           export HOMEBREW_LOADED="true"
+          [ ! "$PATH" = "*/usr/local/bin*" ] && export PATH="$HOMEBREW_PREFIX/share/google-cloud-sdk/bin:$PATH"
         fi
       fi
     ### }}}
