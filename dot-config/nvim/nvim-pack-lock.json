@@ -18,7 +18,7 @@
       "src": "https://github.com/xzbdmw/colorful-menu.nvim"
     },
     "conform.nvim": {
-      "rev": "4993e07fac6679d0a5005aa7499e0bad2bd39f19",
+      "rev": "ffe26e8df8115c9665d24231f8a49fadb2d611ce",
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "debugmaster.nvim": {
@@ -58,7 +58,7 @@
       "src": "https://github.com/nvim-mini/mini.hipatterns"
     },
     "neogit": {
-      "rev": "40347fbc45bd87339eb702bb70dab23c40c15482",
+      "rev": "300949af63fa48cb6bc8d93822b78cb9dbb4fd75",
       "src": "https://github.com/NeogitOrg/neogit"
     },
     "nvim-dap": {
@@ -66,7 +66,7 @@
       "src": "https://github.com/mfussenegger/nvim-dap"
     },
     "nvim-tree.lua": {
-      "rev": "776a5cdfac948b490e06f1d1d22c4cb986e40699",
+      "rev": "59088b96a32ea47caf4976e164dbd88b86447fb7",
       "src": "https://github.com/nvim-tree/nvim-tree.lua"
     },
     "nvim-treesitter": {
@@ -94,7 +94,7 @@
       "src": "https://github.com/nvim-lua/plenary.nvim"
     },
     "schemastore.nvim": {
-      "rev": "5f2299987a1937612c910f00db39156bab6a6b35",
+      "rev": "3941c524f88fd4b7696bc574d7acde0313ef5bf5",
       "src": "https://github.com/b0o/schemastore.nvim"
     },
     "sidekick.nvim": {
@@ -106,11 +106,11 @@
       "src": "https://github.com/folke/snacks.nvim"
     },
     "tiny-inline-diagnostic.nvim": {
-      "rev": "38b06435305c30966b7ceb0a43e460dc43acaada",
+      "rev": "9b55d36b797875b6e513f6bcc526e17cb9fe31f4",
       "src": "https://github.com/rachartier/tiny-inline-diagnostic.nvim"
     },
     "treesj": {
-      "rev": "4770492244ccecdc9b01e0e81fa8f2f6b4a23841",
+      "rev": "186084dee5e9c8eec40f6e39481c723dd567cb05",
       "src": "https://github.com/Wansmer/treesj"
     },
     "which-key.nvim": {

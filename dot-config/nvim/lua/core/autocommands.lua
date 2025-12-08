@@ -1,10 +1,3 @@
-vim.api.nvim_create_autocmd('TextYankPost', {
-  desc = 'Highlight when yanking (copying) text',
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-})
-
 -- equalize the size of all open windows in the current tab page
 vim.api.nvim_create_autocmd("VimResized", {
   callback = function()
@@ -20,3 +13,9 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     vim.hl.on_yank()
   end,
 })
+
+-- Shortcut for updating plugins
+vim.api.nvim_create_user_command("UpdatePlugins", function()
+  vim.pack.update()
+end, { desc = "Update all plugins" })
+
