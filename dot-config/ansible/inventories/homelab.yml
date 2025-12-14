@@ -1,0 +1,8 @@
+---
+all:
+  hosts:
+    172.21.50.1:
+      ansible_user: root
+    172.21.77.117:
+      user: ldenny
+
