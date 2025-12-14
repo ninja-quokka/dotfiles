@@ -18,7 +18,7 @@
       "src": "https://github.com/xzbdmw/colorful-menu.nvim"
     },
     "conform.nvim": {
-      "rev": "ffe26e8df8115c9665d24231f8a49fadb2d611ce",
+      "rev": "16d35530db66ca64f81cb1a13a42afe5962edf34",
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "debugmaster.nvim": {
@@ -46,7 +46,7 @@
       "src": "https://github.com/folke/lazydev.nvim"
     },
     "lualine.nvim": {
-      "rev": "3946f0122255bc377d14a59b27b609fb3ab25768",
+      "rev": "47f91c416daef12db467145e16bed5bbfe00add8",
       "src": "https://github.com/nvim-lualine/lualine.nvim"
     },
     "mason.nvim": {
@@ -58,7 +58,7 @@
       "src": "https://github.com/nvim-mini/mini.hipatterns"
     },
     "neogit": {
-      "rev": "300949af63fa48cb6bc8d93822b78cb9dbb4fd75",
+      "rev": "d8bf9102692250193b855acd9025a826f1af2729",
       "src": "https://github.com/NeogitOrg/neogit"
     },
     "nvim-dap": {
@@ -66,7 +66,7 @@
       "src": "https://github.com/mfussenegger/nvim-dap"
     },
     "nvim-tree.lua": {
-      "rev": "59088b96a32ea47caf4976e164dbd88b86447fb7",
+      "rev": "eb33612bff2fb31f54946fb5dcadc89e905e81ec",
       "src": "https://github.com/nvim-tree/nvim-tree.lua"
     },
     "nvim-treesitter": {
@@ -86,7 +86,7 @@
       "src": "https://github.com/jbyuki/one-small-step-for-vimkind"
     },
     "onedarkpro.nvim": {
-      "rev": "eeac8847a46a02c4de4e887c4c6d34b282060b5d",
+      "rev": "c3b585cb295f610b8283bde5219aff1e9854cc82",
       "src": "https://github.com/olimorris/onedarkpro.nvim"
     },
     "plenary.nvim": {
@@ -94,7 +94,7 @@
       "src": "https://github.com/nvim-lua/plenary.nvim"
     },
     "schemastore.nvim": {
-      "rev": "3941c524f88fd4b7696bc574d7acde0313ef5bf5",
+      "rev": "48dba219db5d45baad6f7491e754706f74d12676",
       "src": "https://github.com/b0o/schemastore.nvim"
     },
     "sidekick.nvim": {
@@ -106,7 +106,7 @@
       "src": "https://github.com/folke/snacks.nvim"
     },
     "tiny-inline-diagnostic.nvim": {
-      "rev": "9b55d36b797875b6e513f6bcc526e17cb9fe31f4",
+      "rev": "d9d12d4bfb9a4c5b8b8bdf7f612551df6972946c",
       "src": "https://github.com/rachartier/tiny-inline-diagnostic.nvim"
     },
     "treesj": {

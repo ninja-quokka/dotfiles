@@ -22,6 +22,13 @@ bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
 
+# ^[[3~ is what gets sent when pressing the delete key,
+#   map it to delete.
+bindkey '^[[3~' delete-char
+
+# Allow comments in interactive shell commands.
+setopt INTERACTIVE_COMMENTS
+
 # Change cursor shape for different vi modes.
 function zle-keymap-select {
   if [[ ${KEYMAP} == vicmd ]] ||
