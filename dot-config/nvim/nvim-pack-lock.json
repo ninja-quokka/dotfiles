@@ -18,7 +18,7 @@
       "src": "https://github.com/xzbdmw/colorful-menu.nvim"
     },
     "conform.nvim": {
-      "rev": "16d35530db66ca64f81cb1a13a42afe5962edf34",
+      "rev": "9b8fa5e0b78168f68bee9bf886dc20f287c61e02",
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "debugmaster.nvim": {
@@ -86,7 +86,7 @@
       "src": "https://github.com/jbyuki/one-small-step-for-vimkind"
     },
     "onedarkpro.nvim": {
-      "rev": "c3b585cb295f610b8283bde5219aff1e9854cc82",
+      "rev": "6b12e00bf5e509e1278a84e2aecf918ca6be9aea",
       "src": "https://github.com/olimorris/onedarkpro.nvim"
     },
     "plenary.nvim": {
@@ -108,6 +108,10 @@
     "tiny-inline-diagnostic.nvim": {
       "rev": "d9d12d4bfb9a4c5b8b8bdf7f612551df6972946c",
       "src": "https://github.com/rachartier/tiny-inline-diagnostic.nvim"
+    },
+    "tokyonight.nvim": {
+      "rev": "5da1b76e64daf4c5d410f06bcb6b9cb640da7dfd",
+      "src": "https://github.com/folke/tokyonight.nvim"
     },
     "treesj": {
       "rev": "186084dee5e9c8eec40f6e39481c723dd567cb05",

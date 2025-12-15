@@ -8,7 +8,7 @@ G.ftplugin = {}
 require("vim._extui").enable({})
 
 -- Set theme:
-require("themes.onedarkpro")
+require("themes.tokyonight")
 
 -- load plugins
 local groups = {
