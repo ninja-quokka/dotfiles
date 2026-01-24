@@ -142,6 +142,16 @@ check-further-callbacks = true
 run = 'move-node-to-workspace C'
 
 [[on-window-detected]]
+if.app-id = 'com.microsoft.Outlook'
+check-further-callbacks = true
+run = 'move-node-to-workspace M'
+
+[[on-window-detected]]
+if.app-id = 'org.mozilla.firefox'
+check-further-callbacks = true
+run = 'move-node-to-workspace B'
+
+[[on-window-detected]]
 if.app-id = 'com.bitwarden.desktop'
 check-further-callbacks = true
 run = 'layout floating'

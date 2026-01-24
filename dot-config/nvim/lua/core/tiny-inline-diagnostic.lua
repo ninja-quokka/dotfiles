@@ -2,11 +2,9 @@ vim.pack.add({
   "https://github.com/rachartier/tiny-inline-diagnostic.nvim",
 })
 
-local tid = require("tiny-inline-diagnostic")
-
-tid.setup({
-  -- preset = "modern",
-  preset = "minimal",
+require("tiny-inline-diagnostic").setup({
+  preset = "modern",
+  -- preset = "minimal",
   disabled_ft = {}, -- List of filetypes to disable the plugin
   options = {
     -- Show the source of the diagnostic.
@@ -33,6 +31,12 @@ tid.setup({
 
     -- Display all diagnostic messages on the cursor line
     show_all_diags_on_cursorline = true,
+
+    -- Virtual text display priority
+    -- Higher values appear above other plugins (e.g., GitBlame, LSP Codelens)
+    virt_texts = {
+      priority = 8048,
+    },
   },
 })
 

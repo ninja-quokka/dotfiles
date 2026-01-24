@@ -1,3 +1,5 @@
+local map = require("core.utils").map
+
 vim.pack.add({
   "https://github.com/folke/snacks.nvim",
 })
@@ -23,6 +25,7 @@ require("snacks").setup({
       gh_pr = {},
     },
   },
+
   indent = {
     enabled = true,
     animate = {
@@ -47,19 +50,26 @@ require("snacks").setup({
         and not excluded_filetypes[bo.filetype]
     end,
   },
+
   scope = { enabled = true },
+
   words = {
     enabled = true,
     debounce = 200,
   },
+
   gh = { enabled = true },
   git = { enabled = true },
   gitbrowse = { enabled = true },
+
   input = { enabled = false },
+
   rename = { enabled = true },
+
   bufdelete = {
     enabled = true,
   },
+
   scratch = {
     enabled = false,
     name = "Scratch",
@@ -67,6 +77,7 @@ require("snacks").setup({
     icon = "󰠮",
     autowrite = false,
   },
+
   terminal = {
     enabled = false,
     shell = vim.o.shell,
@@ -75,65 +86,47 @@ require("snacks").setup({
       height = 0.4,
     },
   },
+
   toggle = {
     enabled = false,
     -- Built-in toggle mappings
     which_key = true, -- integrate with which-key
   },
+
   image = { enabled = false },
+
   scroll = {
     enabled = true,
   },
+
   dim = {
     enabled = false,
   },
+
   animate = {
     enabled = false,
   },
+
   zen = {
     enabled = false,
   },
+
   statuscolumn = { enabled = false },
+
   debug = { enabled = false },
+
   profiler = { enabled = false },
 })
 
-vim.keymap.set("n", "<leader>sf", function()
- Snacks.picker.smart()
-end, { desc = "Find files" })
-vim.keymap.set("n", "<leader>sr", function()
-  Snacks.picker.resume()
-end, { desc = "Find files" })
-vim.keymap.set("n", "<leader>sg", function()
-  Snacks.picker.grep()
-end, { desc = "Find string (livegrep)" })
+-- stylua: ignore start
+map("n", "<leader>sf", function() Snacks.picker.smart() end, { desc = "Find files" })
+map("n", "<leader>sr", function() Snacks.picker.resume() end, { desc = "Find files" })
+map("n", "<leader>sg", function() Snacks.picker.grep() end, { desc = "Find string (livegrep)" })
+map("n", "<leader>gI", function() Snacks.picker.gh_issue() end, { desc = "GitHub Issues (open)" })
+map("n", "<leader>gp", function() Snacks.picker.gh_pr() end, { desc = "GitHub Pull Requests (open)" })
+map("n", "<leader>gP", function() Snacks.picker.gh_pr({ state = "all" }) end, { desc = "GitHub Pull Requests (all)" })
+map("n", "<leader>go", function() Snacks.gitbrowse.open() end, { desc = "Open line in webbrowser" })
 
-vim.keymap.set("n", "<leader>gI", function() Snacks.picker.gh_issue() end, { desc = "GitHub Issues (open)" })
-vim.keymap.set("n", "<leader>gp", function() Snacks.picker.gh_pr() end, { desc = "GitHub Pull Requests (open)" })
-vim.keymap.set("n", "<leader>gP", function() Snacks.picker.gh_pr({ state = "all" }) end, { desc = "GitHub Pull Requests (all)" })
-vim.keymap.set("n", "<leader>go", function() Snacks.gitbrowse.open() end, { desc = "Open line in webbrowser" })
-
-vim.api.nvim_create_autocmd("User", {
-  pattern = "VimEnter",
-  callback = function()
-    -- Setup some globals for debugging (lazy-loaded)
-    _G.dd = function(...)
-      Snacks.debug.inspect(...)
-    end
-    _G.bt = function()
-      Snacks.debug.backtrace()
-    end
-
-    -- Override print to use snacks for `:=` command
-    if vim.fn.has("nvim-0.11") == 1 then
-      vim._print = function(_, ...)
-        dd(...)
-      end
-    else
-      vim.print = _G.dd
-    end
-  end,
-})
 
 -- Let lsp know when files are renamed
 local prev = { new_name = "", old_name = "" } -- Prevents duplicate events
@@ -149,4 +142,3 @@ vim.api.nvim_create_autocmd("User", {
     end)
   end,
 })
-
