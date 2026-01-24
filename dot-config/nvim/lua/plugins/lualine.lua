@@ -9,7 +9,7 @@ vim.api.nvim_create_autocmd("User", {
   pattern = "DebugModeChanged",
   callback = function(args)
     dmode_enabled = args.data.enabled
-    require('lualine').refresh()
+    require("lualine").refresh()
   end,
 })
 
@@ -17,6 +17,7 @@ local ll = require("lualine")
 
 ll.setup({
   options = {
+    theme = "teide",
     disabled_filetypes = {
       -- https://github.com/igorlfs/nvim-dap-view/issues/36
       winbar = {
@@ -54,9 +55,11 @@ ll.setup({
       },
     },
     lualine_b = { "branch", "diff", "diagnostics" },
-    lualine_c = { "filename" },
+    lualine_c = {
+      { "filename", path = 1 },
+    },
     lualine_x = { "filetype", "lsp_status" },
     lualine_y = { "progress" },
-    lualine_z = { "location" },
+    lualine_z = { "location", "searchcount" },
   },
 })

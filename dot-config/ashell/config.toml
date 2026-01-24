@@ -1,0 +1,11 @@
+[modules]
+left = [ "Workspaces" ]
+center = [ "Clock" ]
+right = [ "SystemInfo", [ "Privacy", "Settings" ] ]
+
+[clock]
+format = "%T %a %F"
+
+[settings]
+indicators = ["IdleInhibitor", "PowerProfile", "Audio", "Bluetooth", "Network", "Vpn", "Battery", "PeripheralBattery"]
+remove_airplane_btn = true

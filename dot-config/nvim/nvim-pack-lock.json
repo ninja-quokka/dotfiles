@@ -29,11 +29,16 @@
       "rev": "4516612fe98ff56ae0415a259ff6361a89419b0a",
       "src": "https://github.com/sindrets/diffview.nvim"
     },
+    "dropbar.nvim": {
+      "rev": "ce202248134e3949aac375fd66c28e5207785b10",
+      "src": "https://github.com/Bekaboo/dropbar.nvim"
+    },
     "fastaction.nvim": {
       "rev": "b147d91727cb35be4f722f17e7d4ed5b4a5801d8",
       "src": "https://github.com/Chaitanyabsprip/fastaction.nvim"
     },
     "gitsigns.nvim": {
+<<<<<<< HEAD
       "rev": "abf82a65f185bd54adc0679f74b7d6e1ada690c9",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
@@ -64,6 +69,10 @@
     "nvim-dap": {
       "rev": "e47878dcf1ccc30136b30d19ab19fe76946d61cd",
       "src": "https://github.com/mfussenegger/nvim-dap"
+    },
+    "nvim-lightbulb": {
+      "rev": "aa3a8b0f4305b25cfe368f6c9be9923a7c9d0805",
+      "src": "https://github.com/kosayoda/nvim-lightbulb"
     },
     "nvim-tree.lua": {
       "rev": "037d89e60fb01a6c11a48a19540253b8c72a3c32",
@@ -104,6 +113,10 @@
     "snacks.nvim": {
       "rev": "fe7cfe9800a182274d0f868a74b7263b8c0c020b",
       "src": "https://github.com/folke/snacks.nvim"
+    },
+    "teide.nvim": {
+      "rev": "c8df92c32cd8f9741858241474c9069af74c20ca",
+      "src": "https://github.com/serhez/teide.nvim"
     },
     "tiny-inline-diagnostic.nvim": {
       "rev": "ecce93ff7db4461e942c03e0fcc64bd785df4057",

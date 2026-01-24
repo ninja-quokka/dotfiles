@@ -28,6 +28,13 @@
   opacity: 0.5;
 }
 
+#workspaces button.visible {
+    background-color: #a55555;
+}
+#workspaces button.focused {
+    background-color: red;
+}
+
 #cpu,
 #battery,
 #pulseaudio,

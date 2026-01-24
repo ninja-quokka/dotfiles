@@ -28,11 +28,18 @@
       "7": "7",
       "8": "8",
       "9": "9",
-      "active": "󱓻"
+      "B": "B",
+      "C": "C",
+      "T": "T",
+      "U": "U",
+      "I": "I",
+      "O": "O",
+      "P": "P",
+      // "active": "󱓻"
     },
-    "persistent-workspaces": {
-      "1": [],
-    }
+    // "persistent-workspaces": {
+    //   "1": [],
+    // }
   },
   "cpu": {
     "interval": 5,

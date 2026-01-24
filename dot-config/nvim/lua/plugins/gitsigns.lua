@@ -6,20 +6,41 @@ vim.pack.add({
 local gitsigns = require("gitsigns")
 
 gitsigns.setup({
-  numhl = true,
+  -- numhl = true,
   linehl = false,
   word_diff = false,
   attach_to_untracked = true,
   current_line_blame = true,
   current_line_blame_opts = {
-    virt_text_pos = "right_align", -- 'eol' | 'overlay' | 'right_align'
+    virt_text_pos = "eol", -- 'eol' | 'overlay' | 'right_align'
     delay = 500,
   },
+  preview_config = {
+    -- Options passed to nvim_open_win
+    border = "solid",
+    style = "minimal",
+    relative = "cursor",
+    row = 0,
+    col = 1,
+  },
+  trouble = true,
+  gh = true,
   count_chars = { "¹", "²", "³", "⁴", "⁵", "⁶", "⁷", "⁸", "⁹", ["+"] = ">" },
   signs = {
+    add = { text = "▌" },
+    change = { text = "▌" },
+    untracked = { text = "▌" },
     delete = { show_count = true },
     topdelete = { show_count = true },
-    changedelete = { show_count = true },
+    changedelete = { show_count = true, text = "▌" },
+  },
+  signs_staged = {
+    add = { text = "▌" },
+    change = { text = "▌" },
+    untracked = { text = "▌" },
+    delete = { show_count = true },
+    topdelete = { show_count = true },
+    changedelete = { show_count = true, text = "▌" },
   },
   on_attach = function(bufnr)
     -- map is a helper function

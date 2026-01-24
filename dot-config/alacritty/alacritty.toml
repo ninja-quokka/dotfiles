@@ -14,16 +14,17 @@ dynamic_padding = true
 history=100000
 
 [font]
-size = 18
+size = 12
 
 [font.normal]
 family = "Maple Mono"
 style = "Regular"
 
-[[keyboard.bindings]]
-action = "SpawnNewInstance"
-key = "Return"
-mods = "Control|Shift"
+[keyboard]
+bindings = [
+ { key = "Return", mods = "Control|Shift", action = "SpawnNewInstance" },
+ { key = "N", mods = "Command", chars = "x02x63" },
+]
 
 # Note: man alacritty-bindings for default bindings
 # ctl + shift + space -> enter VI mode

@@ -8,7 +8,7 @@ G.ftplugin = {}
 require("vim._extui").enable({})
 
 -- Set theme:
-require("themes.tokyonight")
+require("themes.teide")
 
 -- load plugins
 local groups = {

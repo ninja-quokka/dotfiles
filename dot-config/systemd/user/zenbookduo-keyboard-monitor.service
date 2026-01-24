@@ -1,0 +1,14 @@
+[Unit]
+Description=Launch inotifywait to watch for ZenBook Keyboard add and remove action
+After=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=%h/.local/bin/keyboard_event_handler.sh
+Restart=on-failure
+RestartSec=5s
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=graphical-session.target
