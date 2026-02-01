@@ -58,15 +58,15 @@
       "src": "https://github.com/nvim-mini/mini.hipatterns"
     },
     "neogit": {
-      "rev": "d8bf9102692250193b855acd9025a826f1af2729",
+      "rev": "73870229977fdd8747025820e15e98cfde787b9c",
       "src": "https://github.com/NeogitOrg/neogit"
     },
     "nvim-dap": {
-      "rev": "085386b9359ddf8d76ad89b98973b8e332dc5ba3",
+      "rev": "e47878dcf1ccc30136b30d19ab19fe76946d61cd",
       "src": "https://github.com/mfussenegger/nvim-dap"
     },
     "nvim-tree.lua": {
-      "rev": "1701e41b07d398757101ac35e11d6992085fc75f",
+      "rev": "037d89e60fb01a6c11a48a19540253b8c72a3c32",
       "src": "https://github.com/nvim-tree/nvim-tree.lua"
     },
     "nvim-treesitter": {
@@ -94,7 +94,7 @@
       "src": "https://github.com/nvim-lua/plenary.nvim"
     },
     "schemastore.nvim": {
-      "rev": "083602d8fedd7230bd6f0b164b7c4f9d1ff3a9c3",
+      "rev": "9b6a3ab14cecc7da9f3aa4fa0ae2a7390748aca5",
       "src": "https://github.com/b0o/schemastore.nvim"
     },
     "sidekick.nvim": {
