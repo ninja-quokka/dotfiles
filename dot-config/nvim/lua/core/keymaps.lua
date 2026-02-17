@@ -13,7 +13,7 @@ map("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
 map("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
 -- Yank the contents of the current buffer
-map("n", "<leader>y", "<cmd>%y+<CR>", { desc = "Yank whole file" })
+map("n", "<leader>y", "<cmd>silent %y+<CR>", { desc = "Yank whole file"})
 
 -- Enter command mode with either ; or :
 map("n", ";", ":", { desc = "CMD enter command mode" })
@@ -31,7 +31,6 @@ map({ "n", "x" }, "p", "P", { noremap = true })
 vim.cmd.amenu [[PopUp.Code\ action <Cmd>lua vim.lsp.buf.code_action()<CR>]]
 vim.cmd.amenu [[PopUp.LSP\ Hover <Cmd>lua vvim.lsp.buf.hoverim.lsp.buf.hover()<CR>]]
 
-map("n", "<leader>w", function() vim.cmd("silent! w") end, { desc = "Write buffer" })
 map("n", "<leader>q", function() vim.cmd("silent! q") end, { desc = "Quit window" })
 map("n", "ga", "<cmd>b#<CR>", { desc = "Go to last Accessed file (Ctrl + ^ synonim)" })
 map("x", "R", ":s###g<left><left><left>", { desc = "Start replacement in selected range" })

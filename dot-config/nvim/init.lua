@@ -4,7 +4,11 @@ _G.Gobal = {}
 G = _G.Gobal
 G.ftplugin = {}
 
--- Enable experimental “extended UI” (extui) features
+-- Leader must be set before any keymaps are defined
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
+-- Enable experimental "extended UI" (extui) features
 -- require("vim._extui").enable({})
 
 -- Set theme:

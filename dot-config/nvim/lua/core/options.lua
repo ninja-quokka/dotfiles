@@ -1,7 +1,3 @@
--- Leader
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
 -- Better UX
 vim.opt.autowriteall = true
 vim.o.cmdheight = 0
