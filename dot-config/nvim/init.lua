@@ -5,7 +5,7 @@ G = _G.Gobal
 G.ftplugin = {}
 
 -- Enable experimental “extended UI” (extui) features
-require("vim._extui").enable({})
+-- require("vim._extui").enable({})
 
 -- Set theme:
 require("themes.teide")
@@ -22,6 +22,7 @@ require("core.loader").start(groups)
 -- load LSPs
 require("core.lsp").setup({
   "ansiblels",
+  "basedpyright",
   "gopls",
   "golangci-lint-langserver",
   "lua_ls",
