@@ -7,3 +7,6 @@ source <(fzf --zsh)
 
 # Better zsh history
 eval "$(atuin init zsh --disable-up-arrow)"
+
+# Autoload .env files
+eval "$(direnv hook zsh)"

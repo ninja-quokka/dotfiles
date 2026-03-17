@@ -1,7 +1,7 @@
 -- Create empty table assigned to the global variable G
 -- to be used as a global namespace.
-_G.Gobal = {}
-G = _G.Gobal
+_G.Global = {}
+G = _G.Global
 G.ftplugin = {}
 
 -- Leader must be set before any keymaps are defined
@@ -9,7 +9,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- Enable experimental "extended UI" (extui) features
--- require("vim._extui").enable({})
+require('vim._core.ui2').enable({})
 
 -- Set theme:
 require("themes.teide")

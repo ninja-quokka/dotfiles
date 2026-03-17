@@ -1,6 +1,6 @@
-# Note: No ligature support sucks
+# Note: No ligature support sucks => === != ->
 [general]
-import = ["./onedarkpro-onedark.toml"]
+import = ["./teide-darker.toml"]
 
 [window]
 # Note: Buttonless is slightly better than None as you get rounded windows
@@ -14,7 +14,7 @@ dynamic_padding = true
 history=100000
 
 [font]
-size = 12
+size = 18
 
 [font.normal]
 family = "Maple Mono"

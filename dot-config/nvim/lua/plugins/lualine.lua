@@ -13,9 +13,7 @@ vim.api.nvim_create_autocmd("User", {
   end,
 })
 
-local ll = require("lualine")
-
-ll.setup({
+require("lualine").setup({
   options = {
     theme = "teide",
     disabled_filetypes = {
@@ -32,6 +30,7 @@ ll.setup({
     "lazy",
     "toggleterm",
     "mason",
+    "nvim-tree",
   },
   sections = {
     lualine_a = {
@@ -55,11 +54,9 @@ ll.setup({
       },
     },
     lualine_b = { "branch", "diff", "diagnostics" },
-    lualine_c = {
-      { "filename", path = 1 },
-    },
+    lualine_c = { { "filename", path = 0 } },
     lualine_x = { "filetype", "lsp_status" },
     lualine_y = { "progress" },
-    lualine_z = { "location", "searchcount" },
+    lualine_z = { "location", "searchcount", "selectioncount" },
   },
 })

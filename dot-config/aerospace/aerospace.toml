@@ -1,11 +1,6 @@
 # Repo: https://github.com/nikitabobko/AeroSpace
 # Docs: https://nikitabobko.github.io/AeroSpace/guide
 
-# Notify Sketchybar about workspace change
-exec-on-workspace-change = ['/bin/bash', '-c',
-    'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
-]
-
 # Start AeroSpace at login
 start-at-login = true
 
@@ -23,7 +18,7 @@ accordion-padding = 30
 [gaps]
 inner.horizontal = 10
 inner.vertical =   10
-outer.left =       75
+outer.left =       10
 outer.bottom =     10
 outer.top =        [{ monitor."built-in" = 5 }, { monitor."studio" = 10 }, 10]
 outer.right =      10

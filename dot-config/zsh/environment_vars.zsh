@@ -22,3 +22,7 @@ export CODE_PATH=$HOME/code
 
 # dotfiles path
 export DOTFILE_PATH=$CODE_PATH/dotfiles
+
+# Workaround for macOS 26.3 (Tahoe) libsystem_trace/fork crash
+# Fixes _os_log_preferences_refresh memory violation during Network calls
+export OS_ACTIVITY_MODE=disable

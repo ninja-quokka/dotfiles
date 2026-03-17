@@ -11,7 +11,7 @@
   required = true
 [core]
   excludesfile = ~/.gitignore_global
-  editor = vv
+  editor = nvim
 [commit]
   gpgSign = false
   verbose = true
@@ -55,5 +55,6 @@
   autoSquash = true
   autoStash = true
   updateRefs = true
-
+[include]
+  path = ~/.config/git/config.local
 # vim: ft=gitconfig

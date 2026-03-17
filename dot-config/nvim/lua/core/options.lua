@@ -22,6 +22,7 @@ vim.opt.scrolloff = 5
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = "a"
+vim.opt.mousescroll = "ver:1"
 
 -- Indents settings
 --

@@ -18,8 +18,9 @@ local M = {}
 
 -- List of executables to check and install via Mason if missing
 M.executables_to_check = {
+  "ansible-language-server",
+  "ansible-lint",
   "bash-language-server",
-  "copilot-language-server",
   "gofumpt",
   "goimports",
   "golangci-lint",
@@ -67,7 +68,6 @@ function M.check_and_install_executables(retry_count)
       vim.log.levels.INFO
     )
   end
-
     return
   end
 
@@ -104,9 +104,9 @@ function M.check_and_install_executables(retry_count)
   local skipped_count = 0
 
   for _, package_name in ipairs(missing_executables) do
-    local package = mason_registry.get_package(package_name)
+    local ok, package = pcall(mason_registry.get_package, package_name)
 
-    if not package then
+    if not ok or not package then
       vim.notify(
         string.format("Mason: Package '%s' not found in registry. Skipping.", package_name),
         vim.log.levels.WARN

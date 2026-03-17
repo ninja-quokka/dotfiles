@@ -4,3 +4,4 @@ dot-config/zsh/custom
 dot-config/dlv/*
 startuptime.log
 dot-config/zsh/interesting-words.txt
+dot-config/git/config.local

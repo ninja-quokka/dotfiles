@@ -7,35 +7,35 @@ require("conform").setup({
     lua = { "stylua" },
     sh = { "shfmt" },
     bash = { "shfmt" },
-    rust = { "rustfmt", lsp_format = "fallback" },
+    rust = { "rustfmt" },
   },
   formatters = { shfmt = { prepend_args = { "-i", "2" } } },
+  format_on_save = function()
+    if vim.g.conform_format_on_save == false then
+      return
+    end
+    return { timeout_ms = 2000, lsp_format = "fallback" }
+  end,
   notify_on_error = true,
 })
 
--- Create a custom user command "Format" that can format code using conform.nvim
--- This command supports both formatting the entire buffer and formatting a selected range
+-- NOTE: Formatting can be configured via .nvim.lua file in project root
+-- Override formatters for specific filetypes:
+-- require("conform").formatters_by_ft.python = { "black" }
+-- require("conform").formatters_by_ft.go = { "goimports", "gofmt" }
+--
+-- Disable format-on-save entirely:
+-- vim.g.conform_format_on_save = false
+
+-- Custom command to enalbe range formatting
 vim.api.nvim_create_user_command("Format", function(args)
-  local range = nil
-
-  -- args.count ~= -1 means the user provided a range (e.g., :Format 10,20 or visual selection)
+  local opts = { async = true, lsp_format = "fallback" }
   if args.count ~= -1 then
-    -- Get the text of the last line in the range (line2 is 1-indexed, so subtract 1 for API)
     local end_line = vim.api.nvim_buf_get_lines(0, args.line2 - 1, args.line2, true)[1]
-
-    -- Build the range table with start and end positions
-    -- Format: { start = {line, column}, end = {line, column} }
-    -- Start at the beginning of line1 (column 0)
-    -- End at the end of line2 (last character position)
-    range = {
+    opts.range = {
       start = { args.line1, 0 },
       ["end"] = { args.line2, end_line:len() },
     }
   end
-
-  -- Call conform.format with options:
-  -- async = true: Format asynchronously so it doesn't block the editor
-  -- lsp_format = "fallback": Use LSP formatting if available, otherwise use formatters
-  -- range = range: Format the specified range (or entire buffer if nil)
-  require("conform").format({ async = true, lsp_format = "fallback", range = range })
-end, { range = true }) -- Enable range support for this command
+  require("conform").format(opts)
+end, { range = true })

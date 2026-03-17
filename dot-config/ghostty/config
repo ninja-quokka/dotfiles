@@ -1,9 +1,9 @@
-theme = onedarkpro_onedark_vivid
+theme = teide-darker
 
 font-family = Maple Mono NF
 font-family-italic = Maple Mono NF
 font-family-bold-italic = Maple Mono NF
-font-size = 14
+font-size = 18
 font-thicken = true
 
 cursor-style-blink = false
@@ -14,6 +14,22 @@ clipboard-read = allow
 clipboard-write = allow
 
 quick-terminal-position = center
+
+macos-titlebar-style = hidden
+macos-window-shadow = false
+window-decoration = false
+window-padding-x = 0
+window-padding-y = 0
+window-padding-color = extend
+window-padding-balance = false
+window-step-resize = true
+
+notify-on-command-finish = unfocused
+notify-on-command-finish-action = no-bell,notify
+notify-on-command-finish-after = 30s
+
+# Make mouse scroll higher resolution
+mouse-scroll-multiplier = 1
 
 # Keybindings
 # Note: grave means backtick like `
