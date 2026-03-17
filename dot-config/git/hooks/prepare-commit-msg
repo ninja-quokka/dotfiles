@@ -23,14 +23,32 @@ if [ -z "$DIFF" ]; then
   exit 0
 fi
 
+# Unset to allow claude to run even if invoked from within a Claude Code session
+unset CLAUDECODE
+
+# Instruction for Claude
+PROMPT="Write a concise git commit message for the following staged diff.
+Follow conventional commit style if appropriate.
+Output ONLY the commit message, nothing else.
+Keep the first line under 72 characters.
+Add a blank line then a brief body if the change warrants explanation.
+Do not assume the reviewer understands what the original problem was.
+In 6 months time when someone is on a train/plane/coach/beach/pub troubleshooting a problem & browsing Git history, there is no guarantee they will have access to the online bug tracker, or online blueprint documents. The great step forward with distributed SCM is that you no longer need to be "online" to have access to all information about the code repository. The commit message should be totally self-contained, to maintain that benefit.
+Do not assume the code is self-evident/self-documenting.
+What is self-evident to one person, might be clear as mud to another person. Always document what the original problem was and how it is being fixed, for any change except the most obvious typos, or whitespace only commits.
+Describe why a change is being made.
+A common mistake is to just document how the code has been written, without describing /why/ the developer chose to do it that way. By all means describe the overall code structure, particularly for large changes, but more importantly describe the intent/motivation behind the changes.
+The first commit line is the most important.
+In Git commits the first line of the commit message has special significance. It is used as email subject line, git annotate messages, gitk viewer annotations, merge commit messages and many more places where space is at a premium. As well as summarizing the change itself, it should take care to detail what part of the code is affected. eg if it affects the libvirt driver, mention 'libvirt' somewhere in the first line.
+Describe any limitations of the current code.
+If the code being changed still has future scope for improvements, or any known limitations then mention these in the commit message. This demonstrates to the reviewer that the broader picture has been considered and what tradeoffs have been done in terms of short term goals vs. long term wishes."
+
 # Generate commit message using Claude
-MSG=$(claude --print --model claude-sonnet-4-5-20250514 \
-  "Write a concise git commit message for the following staged diff. Follow conventional commit style if appropriate. Output ONLY the commit message, nothing else. Keep the first line under 72 characters. Add a blank line then a brief body if the change warrants explanation." \
-  <<< "$DIFF" 2>/dev/null)
+MSG=$(claude --print "$PROMPT" <<<"$DIFF" 2>/dev/null)
 
 # Only replace if claude succeeded and returned something
 if [ $? -eq 0 ] && [ -n "$MSG" ]; then
   # Preserve any existing comments (like the verbose diff git adds)
   COMMENTS=$(grep '^#' "$COMMIT_MSG_FILE")
-  printf '%s\n\n%s\n' "$MSG" "$COMMENTS" > "$COMMIT_MSG_FILE"
+  printf '%s\n\n%s\n' "$MSG" "$COMMENTS" >"$COMMIT_MSG_FILE"
 fi
