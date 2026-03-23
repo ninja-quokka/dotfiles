@@ -10,7 +10,7 @@
   process = git-lfs filter-process
   required = true
 [core]
-  excludesfile = ~/.gitignore_global
+  excludesfile = ~/.config/git/.gitignore_global
   editor = nvim
   hooksPath = ~/.config/git/hooks
 [commit]
